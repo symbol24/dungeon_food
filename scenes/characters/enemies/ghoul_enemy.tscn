@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://dwg8dcvp7by0j" path="res://code/characters/enemies/enemy.gd" id="1_n35ch"]
 [ext_resource type="Texture2D" uid="uid://bpxd5yk85njtb" path="res://textures/Ghoul Sprite Sheet 62 x 33.png" id="2_q3un0"]
 [ext_resource type="Script" uid="uid://c31q8ehif82fq" path="res://code/utilities/hurt_box.gd" id="3_lbxvy"]
+[ext_resource type="Script" uid="uid://cora4fbguurvy" path="res://code/utilities/hit_box.gd" id="4_48mt8"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_q3un0"]
 radius = 2.5
@@ -58,6 +59,18 @@ tracks/3/keys = {
 "update": 1,
 "values": [ExtResource("2_q3un0")]
 }
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("attack/attack_collider:disabled")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
 
 [sub_resource type="Animation" id="Animation_luog3"]
 resource_name = "attack"
@@ -89,6 +102,18 @@ tracks/1/keys = {
 "method": &"end_attack"
 }]
 }
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("attack/attack_collider:disabled")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.2, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
 
 [sub_resource type="Animation" id="Animation_vehkv"]
 resource_name = "death"
@@ -105,6 +130,20 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
 "update": 1,
 "values": [Vector2i(0, 4), Vector2i(1, 4), Vector2i(2, 4), Vector2i(3, 4), Vector2i(4, 4), Vector2i(5, 4), Vector2i(6, 4), Vector2i(7, 4)]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.8),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"end_death_anim"
+}]
 }
 
 [sub_resource type="Animation" id="Animation_87jvk"]
@@ -192,29 +231,35 @@ _data = {
 radius = 5.0
 height = 22.0
 
-[node name="GhoulEnemy" type="CharacterBody2D" unique_id=1930172643]
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_luog3"]
+radius = 4.0
+height = 26.0
+
+[node name="GhoulEnemy" type="CharacterBody2D" unique_id=1930172643 node_paths=PackedStringArray("for_flipping")]
 collision_layer = 4
 script = ExtResource("1_n35ch")
+for_flipping = [NodePath("sprite"), NodePath("attack/attack_collider")]
 starting_hp = 5.0
-metadata/_edit_vertical_guides_ = [-2.0, 3.0]
+metadata/_edit_vertical_guides_ = [-3.0, 3.0]
 metadata/_edit_horizontal_guides_ = [9.0, -9.0]
-
-[node name="move_collider" type="CollisionShape2D" parent="." unique_id=715367889]
-position = Vector2(0.5, 2)
-shape = SubResource("CapsuleShape2D_q3un0")
 
 [node name="sprite" type="Sprite2D" parent="." unique_id=932356969]
 unique_name_in_owner = true
-position = Vector2(2, -6.5)
+position = Vector2(1.5, -6.5)
 texture = ExtResource("2_q3un0")
 hframes = 11
 vframes = 6
+
+[node name="move_collider" type="CollisionShape2D" parent="." unique_id=715367889]
+position = Vector2(0, 2)
+shape = SubResource("CapsuleShape2D_q3un0")
 
 [node name="animator" type="AnimationPlayer" parent="." unique_id=687108551]
 unique_name_in_owner = true
 libraries/ = SubResource("AnimationLibrary_48mt8")
 
 [node name="HurtBox" type="Area2D" parent="." unique_id=482815604]
+visible = false
 collision_layer = 4
 collision_mask = 2
 script = ExtResource("3_lbxvy")
@@ -223,3 +268,16 @@ metadata/_custom_type_script = "uid://c31q8ehif82fq"
 [node name="hurt_collider" type="CollisionShape2D" parent="HurtBox" unique_id=564623070]
 position = Vector2(0, -2)
 shape = SubResource("CapsuleShape2D_48mt8")
+
+[node name="attack" type="Area2D" parent="." unique_id=693285019]
+collision_layer = 4
+collision_mask = 2
+script = ExtResource("4_48mt8")
+metadata/_custom_type_script = "uid://cora4fbguurvy"
+
+[node name="attack_collider" type="CollisionShape2D" parent="attack" unique_id=1027665186]
+position = Vector2(13, -4)
+rotation = 1.5707964
+shape = SubResource("CapsuleShape2D_luog3")
+disabled = true
+debug_color = Color(0.9840198, 0, 0.3519744, 0.41960785)
