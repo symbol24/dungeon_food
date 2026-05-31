@@ -1,0 +1,70 @@
+class_name Characters extends CharacterBody2D
+
+
+const FRICTION:float = 1000.0
+const ACCELERATION:float = 700.0
+
+
+@export var move_speed := 100.0
+## Must be negative
+@export var jump_velocity:float = -300
+
+var _gravity:float = ProjectSettings.get_setting("physics/2d/default_gravity")
+var _direction := Vector2.ZERO
+var _is_jumping := false
+var _is_attacking := false
+var _facing_right := true
+var _can_flip := true
+var _can_move_x := true
+var _previous_is_on_floor := false
+
+@onready var sprite: Sprite2D = %sprite
+@onready var animator: AnimationPlayer = %animator
+
+
+func _ready() -> void:
+	pass
+
+
+func _physics_process(delta: float) -> void:
+	velocity = _move(delta)
+	if _is_jumping and is_on_ceiling_only(): _land()
+	move_and_slide()
+
+
+func _move(delta) -> Vector2:
+	var new_vel:Vector2 = velocity
+	if _direction.x == 0.0:
+		new_vel.x = move_toward(new_vel.x, 0, delta * FRICTION)
+	else:
+		new_vel.x = move_toward(new_vel.x, _direction.x * move_speed, delta * ACCELERATION)
+	
+	if not is_on_floor():
+		new_vel.y += _gravity * delta
+	
+	return new_vel
+
+
+
+# TODO: Implement coyote time
+func _jump() -> void:
+	if is_on_floor() and not _is_jumping:
+		_is_jumping = true
+		velocity.y = jump_velocity
+
+
+func _land() -> void:
+	if is_on_floor() and _is_jumping:
+		_is_jumping = false
+
+
+func _flip() -> void:
+	pass
+	#if not animated_sprite.flip_h and _facing_right:
+		#animated_sprite.flip_h = true
+	#elif animated_sprite.flip_h and not _facing_right:
+		#animated_sprite.flip_h = false
+
+
+func _attack() -> void:
+	pass
