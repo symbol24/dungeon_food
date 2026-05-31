@@ -3,21 +3,25 @@ class_name Characters extends CharacterBody2D
 
 const FRICTION:float = 1000.0
 const ACCELERATION:float = 700.0
+const ITIME := 0.4
 
-
+@export var for_flipping:Array[Node2D]
 @export var move_speed := 100.0
 ## Must be negative
 @export var jump_velocity:float = -300
 @export var starting_hp := 1.0
 
 var _gravity:float = ProjectSettings.get_setting("physics/2d/default_gravity")
+var _grounded := false
 var _direction := Vector2.ZERO
 var _is_jumping := false
 var _is_attacking := false
 var _facing_right := true
 var _can_flip := true
 var _can_move_x := true
+var _can_jump := true
 var _previous_is_on_floor := false
+var _is_invincible := false
 
 # Stats
 var hp := 1.0
@@ -28,13 +32,24 @@ var max_hp := 1.0
 
 
 func _ready() -> void:
-	pass
+	_setup_character()
 
 
 func _physics_process(delta: float) -> void:
 	velocity = _move(delta)
 	if _is_jumping and is_on_ceiling_only(): _land()
 	move_and_slide()
+
+
+func apply_damage(value:float) -> void:
+	if not _is_invincible:
+		_is_invincible = true
+		hp -= value
+		if hp <= 0.0:
+			hp = 0.0
+			print("DEAD")
+		else:
+			get_tree().create_timer(ITIME).timeout.connect(func (): _is_invincible = false)
 
 
 func _setup_character() -> void:
@@ -45,13 +60,7 @@ func _setup_character() -> void:
 	_facing_right = true
 	_can_flip = true
 	_can_move_x = true
-
-
-func _applay_damage(value:float) -> void:
-	hp -= value
-	if hp <= 0.0:
-		hp = 0.0
-		print("DEAD")
+	_is_invincible = false
 
 
 func _move(delta) -> Vector2:
