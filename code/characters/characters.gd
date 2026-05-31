@@ -90,11 +90,22 @@ func _land() -> void:
 
 
 func _flip() -> void:
-	pass
-	#if not animated_sprite.flip_h and _facing_right:
-		#animated_sprite.flip_h = true
-	#elif animated_sprite.flip_h and not _facing_right:
-		#animated_sprite.flip_h = false
+	var flipped := false
+	if not _facing_right and _direction.x > 0.0:
+		_facing_right = true
+		flipped = true
+	elif _facing_right and _direction.x < 0.0:
+		_facing_right = false
+		flipped = true
+
+	if sprite.flip_h and _facing_right:
+		sprite.flip_h = false
+	elif not sprite.flip_h and not _facing_right:
+		sprite.flip_h = true
+
+	if flipped:
+		for each in for_flipping:
+			each.position.x = -each.position.x
 
 
 func _attack() -> void:

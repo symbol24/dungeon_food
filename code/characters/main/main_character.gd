@@ -61,24 +61,6 @@ func _get_gravity(delta:float) -> Vector2:
 	return new_vel
 
 
-func _flip() -> void:
-	var flipped := false
-	if not _facing_right and _direction.x > 0.0:
-		_facing_right = true
-		flipped = true
-	elif _facing_right and _direction.x < 0.0:
-		_facing_right = false
-		flipped = true
-
-	if sprite.flip_h and _facing_right:
-		sprite.flip_h = false
-	elif not sprite.flip_h and not _facing_right:
-		sprite.flip_h = true
-
-	if flipped:
-		for each in for_flipping:
-			each.position.x = -each.position.x
-
 # TODO: Implement coyote time
 func _jump() -> void:
 	if is_on_floor() and not _is_jumping and _can_jump:
