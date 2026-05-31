@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://bjk2gsmwesx06" path="res://code/characters/main/main_character.gd" id="1_gfyis"]
 [ext_resource type="Texture2D" uid="uid://cnh7d6lx7mdrs" path="res://textures/Platformer Hero - with Weapon 79x79.png" id="2_0cnd8"]
 [ext_resource type="Script" uid="uid://cora4fbguurvy" path="res://code/utilities/hit_box.gd" id="3_4gd24"]
+[ext_resource type="Script" uid="uid://c31q8ehif82fq" path="res://code/utilities/hurt_box.gd" id="4_ohknt"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_0cnd8"]
 radius = 5.0
@@ -417,6 +418,10 @@ states/ground/position = Vector2(384, 100)
 transitions = ["air", "attacks", SubResource("AnimationNodeStateMachineTransition_n4655"), "attacks", "air", SubResource("AnimationNodeStateMachineTransition_co2ic"), "Start", "ground", SubResource("AnimationNodeStateMachineTransition_dybe6"), "ground", "air", SubResource("AnimationNodeStateMachineTransition_td5vo"), "ground", "attacks", SubResource("AnimationNodeStateMachineTransition_w5l7o"), "attacks", "ground", SubResource("AnimationNodeStateMachineTransition_tvf8r"), "air", "ground", SubResource("AnimationNodeStateMachineTransition_pf1sn")]
 graph_offset = Vector2(-353, -180)
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_dybe6"]
+radius = 6.0
+height = 22.0
+
 [node name="MainCharacter" type="CharacterBody2D" unique_id=2095451580 node_paths=PackedStringArray("for_flipping")]
 process_mode = 1
 collision_layer = 2
@@ -425,15 +430,17 @@ for_flipping = [NodePath("attack_1/attack1_collider"), NodePath("sprite")]
 starting_hp = 10.0
 metadata/_edit_vertical_guides_ = [-5.0, 5.0]
 
-[node name="move_collider" type="CollisionShape2D" parent="." unique_id=712700037]
-shape = SubResource("CapsuleShape2D_0cnd8")
-
 [node name="sprite" type="Sprite2D" parent="." unique_id=1380352732]
 unique_name_in_owner = true
 position = Vector2(7, 0)
 texture = ExtResource("2_0cnd8")
 hframes = 14
 vframes = 27
+
+[node name="move_collider" type="CollisionShape2D" parent="." unique_id=712700037]
+visible = false
+position = Vector2(0, 0.5)
+shape = SubResource("CapsuleShape2D_0cnd8")
 
 [node name="animator" type="AnimationPlayer" parent="." unique_id=973544278]
 unique_name_in_owner = true
@@ -470,3 +477,12 @@ parameters/attacks/conditions/in_air = false
 parameters/ground/conditions/ground_out = false
 parameters/ground/conditions/idle = true
 parameters/ground/conditions/move = false
+
+[node name="HurtBox" type="Area2D" parent="." unique_id=784541113]
+collision_layer = 2
+collision_mask = 4
+script = ExtResource("4_ohknt")
+metadata/_custom_type_script = "uid://c31q8ehif82fq"
+
+[node name="hurt_collider" type="CollisionShape2D" parent="HurtBox" unique_id=2022298890]
+shape = SubResource("CapsuleShape2D_dybe6")
