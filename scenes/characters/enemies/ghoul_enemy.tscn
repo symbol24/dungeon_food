@@ -190,10 +190,7 @@ _data = {
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_48mt8"]
 radius = 5.0
-height = 18.0
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_luog3"]
-radius = 5.0
+height = 22.0
 
 [node name="GhoulEnemy" type="CharacterBody2D" unique_id=1930172643]
 collision_layer = 4
@@ -224,8 +221,5 @@ script = ExtResource("3_lbxvy")
 metadata/_custom_type_script = "uid://c31q8ehif82fq"
 
 [node name="hurt_collider" type="CollisionShape2D" parent="HurtBox" unique_id=564623070]
+position = Vector2(0, -2)
 shape = SubResource("CapsuleShape2D_48mt8")
-
-[node name="hurt_collider_2" type="CollisionShape2D" parent="HurtBox" unique_id=1723740619]
-position = Vector2(3, -10)
-shape = SubResource("CircleShape2D_luog3")

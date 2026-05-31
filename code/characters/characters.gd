@@ -4,6 +4,7 @@ class_name Characters extends CharacterBody2D
 const FRICTION:float = 1000.0
 const ACCELERATION:float = 700.0
 const ITIME := 0.4
+const HITFLASHCOUNT := 2
 
 @export var for_flipping:Array[Node2D]
 @export var move_speed := 100.0
