@@ -3,8 +3,10 @@ class_name Enemy extends Characters
 
 const HITCOLOR := Color(18.892, 0.0, 0.0, 0.475)
 
-enum Animstate {IDLE, MOVE, ATTACK, HIT, DEAD}
+enum Animstate {IDLE, MOVE, ATTACK, DEAD}
 
+
+var target:MainCharacter = null
 
 var _current_state:Animstate = Animstate.DEAD
 var _can_switch_state := true
@@ -34,19 +36,17 @@ func apply_damage(value:float) -> void:
 				_hit()
 
 
+func end_death_anim() -> void:
+	# TODO: Loot spawns here
+	queue_free.call_deferred()
+
+
 func _hit() -> void:
 	get_tree().create_timer(ITIME).timeout.connect(func (): _is_invincible = false)
 	var tween := create_tween()
 	for x in HITFLASHCOUNT:
 		tween.tween_property(self, "modulate", HITCOLOR, ITIME/HITFLASHCOUNT/2)
 		tween.tween_property(self, "modulate", Color.WHITE, ITIME/HITFLASHCOUNT/2)
-
-
-func _flip() -> void:
-	if not _facing_right and _direction.x > 0.0:
-		_facing_right = true
-	elif _facing_right and _direction.x < 0.0:
-		_facing_right = false
 
 
 func _update_anim_state(new_state:Animstate) -> void:
@@ -61,7 +61,5 @@ func _update_anim_state(new_state:Animstate) -> void:
 				animator.play(&"attack")
 			Animstate.DEAD:
 				animator.play(&"death")
-			Animstate.HIT:
-				animator.play(&"hit")
 			_:
 				animator.play(&"idle")
