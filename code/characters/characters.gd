@@ -8,6 +8,7 @@ const ACCELERATION:float = 700.0
 @export var move_speed := 100.0
 ## Must be negative
 @export var jump_velocity:float = -300
+@export var starting_hp := 1.0
 
 var _gravity:float = ProjectSettings.get_setting("physics/2d/default_gravity")
 var _direction := Vector2.ZERO
@@ -17,6 +18,10 @@ var _facing_right := true
 var _can_flip := true
 var _can_move_x := true
 var _previous_is_on_floor := false
+
+# Stats
+var hp := 1.0
+var max_hp := 1.0
 
 @onready var sprite: Sprite2D = %sprite
 @onready var animator: AnimationPlayer = %animator
@@ -32,6 +37,23 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 
 
+func _setup_character() -> void:
+	max_hp = starting_hp
+	hp = max_hp
+	_is_jumping = false
+	_is_attacking = false
+	_facing_right = true
+	_can_flip = true
+	_can_move_x = true
+
+
+func _applay_damage(value:float) -> void:
+	hp -= value
+	if hp <= 0.0:
+		hp = 0.0
+		print("DEAD")
+
+
 func _move(delta) -> Vector2:
 	var new_vel:Vector2 = velocity
 	if _direction.x == 0.0:
@@ -43,7 +65,6 @@ func _move(delta) -> Vector2:
 		new_vel.y += _gravity * delta
 	
 	return new_vel
-
 
 
 # TODO: Implement coyote time

@@ -2,6 +2,7 @@
 
 [ext_resource type="TileSet" uid="uid://buitebbur2thf" path="res://data/tiles/debug_world.tres" id="1_fn0p1"]
 [ext_resource type="PackedScene" uid="uid://c4n8iykk554fr" path="res://scenes/characters/main/main_character.tscn" id="2_s158c"]
+[ext_resource type="PackedScene" uid="uid://n66qy1lp0sei" path="res://scenes/characters/enemies/ghoul_enemy.tscn" id="3_y3b1x"]
 
 [node name="Node2D" type="Node2D" unique_id=103456852]
 
@@ -11,3 +12,6 @@ tile_set = ExtResource("1_fn0p1")
 
 [node name="MainCharacter" parent="." unique_id=2095451580 instance=ExtResource("2_s158c")]
 position = Vector2(181, 113)
+
+[node name="GhoulEnemy" parent="." unique_id=1930172643 instance=ExtResource("3_y3b1x")]
+position = Vector2(373, 170)

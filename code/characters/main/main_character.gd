@@ -76,10 +76,10 @@ func _flip() -> void:
 
 	if sprite.flip_h and _facing_right:
 		sprite.flip_h = false
-		sprite.position.x = 6.0
+		sprite.position.x = -sprite.position.x
 	elif not sprite.flip_h and not _facing_right:
 		sprite.flip_h = true
-		sprite.position.x = -8
+		sprite.position.x = -sprite.position.x
 
 
 # TODO: Implement coyote time
