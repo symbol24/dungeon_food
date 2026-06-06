@@ -1,0 +1,21 @@
+[gd_resource type="Theme" format=3 uid="uid://d3p2q3uqsmg06"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ti7j5"]
+content_margin_left = 5.0
+bg_color = Color(0.05882353, 0.05882353, 0.05882353, 0.39215687)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jq6j5"]
+content_margin_left = 5.0
+bg_color = Color(0.05882353, 0.05882353, 0.05882353, 0.39215687)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_33c3d"]
+content_margin_left = 5.0
+content_margin_right = 5.0
+bg_color = Color(0.04684318, 0.01680987, 0.10069274, 0.49411765)
+
+[resource]
+default_font_size = 6
+LineEdit/styles/focus = SubResource("StyleBoxFlat_ti7j5")
+LineEdit/styles/normal = SubResource("StyleBoxFlat_jq6j5")
+debug_text_panel/base_type = &"Panel"
+debug_text_panel/styles/panel = SubResource("StyleBoxFlat_33c3d")

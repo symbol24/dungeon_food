@@ -1,0 +1,41 @@
+[gd_scene format=3 uid="uid://bq28kg22q7v08"]
+
+[ext_resource type="Script" uid="uid://bij255iyn7k5a" path="res://_debug/debug.gd" id="1_twqeq"]
+[ext_resource type="Theme" uid="uid://d3p2q3uqsmg06" path="res://_debug/debug_ui_theme.tres" id="2_gyv2y"]
+
+[node name="DebugLayer" type="CanvasLayer" unique_id=2112898669]
+script = ExtResource("1_twqeq")
+
+[node name="top_box" type="VBoxContainer" parent="." unique_id=1037921101]
+unique_name_in_owner = true
+visible = false
+custom_minimum_size = Vector2(426, 177)
+offset_right = 416.0
+offset_bottom = 17.0
+size_flags_horizontal = 3
+theme = ExtResource("2_gyv2y")
+theme_override_constants/separation = 0
+
+[node name="text_panel" type="PanelContainer" parent="top_box" unique_id=2082483370]
+custom_minimum_size = Vector2(416, 0)
+layout_mode = 2
+size_flags_vertical = 3
+theme = ExtResource("2_gyv2y")
+theme_type_variation = &"debug_text_panel"
+
+[node name="output" type="RichTextLabel" parent="top_box/text_panel" unique_id=1437983753]
+unique_name_in_owner = true
+layout_mode = 2
+theme = ExtResource("2_gyv2y")
+bbcode_enabled = true
+scroll_active = false
+scroll_following = true
+scroll_following_visible_characters = true
+vertical_alignment = 2
+
+[node name="input" type="LineEdit" parent="top_box" unique_id=269242285]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(416, 17)
+layout_mode = 2
+theme = ExtResource("2_gyv2y")
+placeholder_text = "/commands"

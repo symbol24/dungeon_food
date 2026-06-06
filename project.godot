@@ -17,6 +17,7 @@ config/icon="res://icon.svg"
 
 [autoload]
 
+Debug="*uid://bq28kg22q7v08"
 UI="*uid://d3xvmguo1xysd"
 
 [debug]
