@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://bpxd5yk85njtb" path="res://textures/Ghoul Sprite Sheet 62 x 33.png" id="2_q3un0"]
 [ext_resource type="Script" uid="uid://c31q8ehif82fq" path="res://code/utilities/hurt_box.gd" id="3_lbxvy"]
 [ext_resource type="Script" uid="uid://cora4fbguurvy" path="res://code/utilities/hit_box.gd" id="4_48mt8"]
+[ext_resource type="Script" uid="uid://dlpwn67egyaqm" path="res://code/characters/enemies/utilities/simple_detector.gd" id="5_luog3"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_q3un0"]
 radius = 2.5
@@ -239,6 +240,7 @@ height = 26.0
 collision_layer = 4
 script = ExtResource("1_n35ch")
 for_flipping = [NodePath("sprite"), NodePath("attack/attack_collider")]
+move_speed = 25.0
 starting_hp = 5.0
 metadata/_edit_vertical_guides_ = [-3.0, 3.0]
 metadata/_edit_horizontal_guides_ = [9.0, -9.0]
@@ -281,3 +283,16 @@ rotation = 1.5707964
 shape = SubResource("CapsuleShape2D_luog3")
 disabled = true
 debug_color = Color(0.9840198, 0, 0.3519744, 0.41960785)
+
+[node name="simple_detector" type="Node2D" parent="." unique_id=184356604]
+script = ExtResource("5_luog3")
+
+[node name="left" type="RayCast2D" parent="simple_detector" unique_id=1950875128]
+unique_name_in_owner = true
+target_position = Vector2(-50, 0)
+collision_mask = 2
+
+[node name="right" type="RayCast2D" parent="simple_detector" unique_id=2078347927]
+unique_name_in_owner = true
+target_position = Vector2(50, 0)
+collision_mask = 2
