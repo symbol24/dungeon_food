@@ -1,0 +1,1 @@
+class_name Ingredient extends RigidBody2D

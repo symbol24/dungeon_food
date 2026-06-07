@@ -1,0 +1,1 @@
+class_name DungeonManager extends Node2D

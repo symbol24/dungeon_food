@@ -18,6 +18,7 @@ config/icon="res://icon.svg"
 [autoload]
 
 Debug="*uid://bq28kg22q7v08"
+Signals="*uid://dlt3o0isivp6n"
 UI="*uid://d3xvmguo1xysd"
 
 [debug]
@@ -37,6 +38,7 @@ window/stretch/mode="canvas_items"
 [file_customization]
 
 folder_colors={
+"res://_debug/": "gray",
 "res://code/": "yellow",
 "res://data/": "purple",
 "res://scenes/": "red",
