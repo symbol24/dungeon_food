@@ -1,6 +1,6 @@
-class_name LootSpawner extends Node2D
+class_name SpawnManager extends Node2D
 
 
 func _ready() -> void:
-	name = &"LootSpawner"
+	name = &"SpawnManager"
 	process_mode = Node.PROCESS_MODE_PAUSABLE

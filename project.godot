@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="dungeon_food"
-run/main_scene="uid://dfpwpgactpk5i"
+run/main_scene="uid://dk1pnam0ms8sp"
 config/features=PackedStringArray("4.6", "GL Compatibility")
 config/icon="res://icon.svg"
 

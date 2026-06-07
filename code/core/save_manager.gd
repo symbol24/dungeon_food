@@ -15,6 +15,7 @@ var all_save_data: Array[SaveData] = []
 
 
 func _ready() -> void:
+	name = &"SaveManager"
 	process_mode = PROCESS_MODE_ALWAYS
 	all_save_data = _get_all_saves()
 

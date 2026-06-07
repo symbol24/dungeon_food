@@ -18,7 +18,7 @@ var _parent:Enemy = null:
 
 
 func _ready() -> void:
-	_active = true
+	_active = false
 
 
 func _physics_process(delta: float) -> void:
