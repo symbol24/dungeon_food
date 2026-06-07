@@ -24,7 +24,6 @@ func _physics_process(_delta: float) -> void:
 
 
 func _add_item(loot:Array[ItemData], pos:Vector2) -> void:
-	print(loot)
 	assert(not loot.is_empty(), "Loot spawner received no loot.")
 	assert(pos != null and pos != Vector2.ZERO, "Loot spawner received wrong position.")
 	for each in loot:
