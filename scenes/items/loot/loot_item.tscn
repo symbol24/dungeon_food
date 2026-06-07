@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://cvij6ohqm70on"]
+
+[ext_resource type="Script" uid="uid://d0p1x3lqohl08" path="res://code/items/loot/loot_item.gd" id="1_rax7x"]
+[ext_resource type="TileSet" uid="uid://buitebbur2thf" path="res://data/tiles/debug_world.tres" id="2_s0ydi"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_rax7x"]
+radius = 3.1622777
+
+[node name="LootItem" type="RigidBody2D" unique_id=2136444944]
+collision_layer = 8
+script = ExtResource("1_rax7x")
+metadata/_custom_type_script = "uid://d0p1x3lqohl08"
+
+[node name="rigid_collider" type="CollisionShape2D" parent="." unique_id=323529571]
+shape = SubResource("CircleShape2D_rax7x")
+
+[node name="image" type="TileMapLayer" parent="." unique_id=2109510016]
+unique_name_in_owner = true
+position = Vector2(-4, -4)
+scale = Vector2(0.5, 0.5)
+tile_map_data = PackedByteArray(0, 0, 0, 0, 0, 0, 0, 0, 12, 0, 14, 0, 0, 0)
+tile_set = ExtResource("2_s0ydi")

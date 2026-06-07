@@ -7,6 +7,7 @@ enum Animstate {SPAWN, IDLE, MOVE, ATTACK, DEAD}
 
 
 @export var distance_to_target := 10.0
+@export var loot_table:LootTable
 
 var _current_state:Animstate = Animstate.DEAD
 var _can_switch_state := true
@@ -50,7 +51,7 @@ func apply_damage(value:float) -> void:
 
 
 func end_death_anim() -> void:
-	# TODO: Loot spawns here
+	Signals.spawn_loot.emit(loot_table.get_loot(), global_position)
 	queue_free.call_deferred()
 
 

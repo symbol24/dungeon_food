@@ -1,0 +1,39 @@
+[gd_resource type="Resource" script_class="LootTable" format=3 uid="uid://bq6i173gjqsah"]
+
+[ext_resource type="Script" uid="uid://dwexc07ubcagt" path="res://code/items/loot/system/loot_table.gd" id="1_ronq8"]
+[ext_resource type="Script" uid="uid://3chdbyn1skcb" path="res://code/items/loot/system/loot_table_item.gd" id="2_p38pc"]
+[ext_resource type="Resource" uid="uid://cx1v3k4ti60y7" path="res://data/items/ingredients/test_ingredient.tres" id="3_p38pc"]
+[ext_resource type="Resource" uid="uid://dtusd5vxfj5yu" path="res://data/items/ingredients/test_ingredient_2.tres" id="4_gn23a"]
+[ext_resource type="Resource" uid="uid://dqxcfthj8rucx" path="res://data/items/ingredients/test_ingredient_rare.tres" id="5_owqgd"]
+[ext_resource type="Resource" uid="uid://ji2gsj24gjfn" path="res://data/items/ingredients/test_ingredient_super_rare.tres" id="6_jew6a"]
+
+[sub_resource type="Resource" id="Resource_swv6q"]
+script = ExtResource("2_p38pc")
+data = ExtResource("3_p38pc")
+weight = 40
+metadata/_custom_type_script = "uid://3chdbyn1skcb"
+
+[sub_resource type="Resource" id="Resource_pyv13"]
+script = ExtResource("2_p38pc")
+data = ExtResource("4_gn23a")
+weight = 40
+metadata/_custom_type_script = "uid://3chdbyn1skcb"
+
+[sub_resource type="Resource" id="Resource_0ay2d"]
+script = ExtResource("2_p38pc")
+data = ExtResource("5_owqgd")
+weight = 15
+metadata/_custom_type_script = "uid://3chdbyn1skcb"
+
+[sub_resource type="Resource" id="Resource_3l1bg"]
+script = ExtResource("2_p38pc")
+data = ExtResource("6_jew6a")
+weight = 5
+mandatory_spawn_times = 5
+metadata/_custom_type_script = "uid://3chdbyn1skcb"
+
+[resource]
+script = ExtResource("1_ronq8")
+table = Array[ExtResource("2_p38pc")]([SubResource("Resource_swv6q"), SubResource("Resource_pyv13"), SubResource("Resource_0ay2d"), SubResource("Resource_3l1bg")])
+default_item_spawn_count = 3
+metadata/_custom_type_script = "uid://dwexc07ubcagt"

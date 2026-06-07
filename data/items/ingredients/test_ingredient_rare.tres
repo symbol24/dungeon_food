@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="IngredientData" format=3 uid="uid://dqxcfthj8rucx"]
+
+[ext_resource type="Script" uid="uid://dyr1wmh0uo7mx" path="res://code/items/ingredients/ingredient_data.gd" id="1_rhmri"]
+
+[resource]
+script = ExtResource("1_rhmri")
+id = &"rare_test_ingredient"
+ui_coords = Vector2i(14, 14)
+world_coords = Vector2i(14, 14)
+metadata/_custom_type_script = "uid://dyr1wmh0uo7mx"

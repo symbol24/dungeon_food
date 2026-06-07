@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="IngredientData" format=3 uid="uid://ji2gsj24gjfn"]
+
+[ext_resource type="Script" uid="uid://dyr1wmh0uo7mx" path="res://code/items/ingredients/ingredient_data.gd" id="1_gtrry"]
+
+[resource]
+script = ExtResource("1_gtrry")
+id = &"super_rare_ingredient"
+ui_coords = Vector2i(12, 13)
+world_coords = Vector2i(12, 13)
+metadata/_custom_type_script = "uid://dyr1wmh0uo7mx"
