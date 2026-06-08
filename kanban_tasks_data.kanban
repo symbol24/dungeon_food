@@ -1,0 +1,170 @@
+{
+	"categories": [
+		{
+			"uuid": "46c3d75a-cdb1-4aac-bf03-e4a12b08eecb",
+			"title": "Art",
+			"color": "65baff"
+		},
+		{
+			"uuid": "a7427fdb-eb71-4db9-89a9-a513100a3837",
+			"title": "Design",
+			"color": "ac6ffd"
+		},
+		{
+			"uuid": "fee61b68-96d9-473c-9052-604e7075c63f",
+			"title": "Coding",
+			"color": "82e953"
+		},
+		{
+			"uuid": "67c982f9-b76b-48c2-b9b5-ea40aafdbce4",
+			"title": "Bug",
+			"color": "ff0078"
+		},
+		{
+			"uuid": "43d90199-0f8c-4f75-a3a9-6e81c5afb90a",
+			"title": "Refactor",
+			"color": "b7b7b7"
+		},
+		{
+			"uuid": "9c057401-1b33-4617-a7e1-9e0efad571ad",
+			"title": "Optimization",
+			"color": "feff77"
+		},
+		{
+			"uuid": "0b14967f-816f-4a14-b531-9218bacf41cb",
+			"title": "Task",
+			"color": "6863ff"
+		}
+	],
+	"stages": [
+		{
+			"uuid": "3e789873-1915-4ffa-a587-6968d95b6597",
+			"title": "Backlog",
+			"tasks": [
+				"2f6b42ed-0da1-4916-b226-fc3b39d5be25",
+				"6f2600f5-9d6d-4449-8bdd-a7e4bdfcb4a0",
+				"96b1d0cb-8b60-4e92-95b7-44615eb74eda"
+			]
+		},
+		{
+			"uuid": "41fd3f60-bcaa-4a2a-89f1-987bb04b2ac2",
+			"title": "Todo",
+			"tasks": [
+				"2e2956d1-2396-4793-b1df-1bf073812214",
+				"a73bbfd5-c1ed-476c-bfcd-28a1dbed547b",
+				"a8ec984c-91d2-4724-9656-1ca8c9d4d4f8",
+				"19fba871-9db4-4914-999e-a535127af8cd",
+				"af0ae55c-17f4-487c-8326-be72a941dabc",
+				"4860b126-ce63-4ca3-be46-5715355c3c45",
+				"98cf1815-4c7a-4239-a61b-c974372e4e37"
+			]
+		},
+		{
+			"uuid": "320679d7-1fa6-4775-8e99-8172d77ed81a",
+			"title": "Ongoing",
+			"tasks": [
+				"c34c7e8a-6353-41e2-82cf-521edad02759"
+			]
+		},
+		{
+			"uuid": "d9c29c79-ef12-4606-b2f0-60ad2989a314",
+			"title": "Done",
+			"tasks": []
+		}
+	],
+	"tasks": [
+		{
+			"uuid": "2e2956d1-2396-4793-b1df-1bf073812214",
+			"title": "UI framwork",
+			"description": "",
+			"category": "fee61b68-96d9-473c-9052-604e7075c63f",
+			"steps": []
+		},
+		{
+			"uuid": "a73bbfd5-c1ed-476c-bfcd-28a1dbed547b",
+			"title": "level chunk proper system",
+			"description": "",
+			"category": "fee61b68-96d9-473c-9052-604e7075c63f",
+			"steps": []
+		},
+		{
+			"uuid": "c34c7e8a-6353-41e2-82cf-521edad02759",
+			"title": "town character",
+			"description": "",
+			"category": "0b14967f-816f-4a14-b531-9218bacf41cb",
+			"steps": []
+		},
+		{
+			"uuid": "a8ec984c-91d2-4724-9656-1ca8c9d4d4f8",
+			"title": "level loading system",
+			"description": "",
+			"category": "fee61b68-96d9-473c-9052-604e7075c63f",
+			"steps": []
+		},
+		{
+			"uuid": "19fba871-9db4-4914-999e-a535127af8cd",
+			"title": "town level  and system",
+			"description": "",
+			"category": "0b14967f-816f-4a14-b531-9218bacf41cb",
+			"steps": []
+		},
+		{
+			"uuid": "af0ae55c-17f4-487c-8326-be72a941dabc",
+			"title": "mini map system",
+			"description": "",
+			"category": "0b14967f-816f-4a14-b531-9218bacf41cb",
+			"steps": []
+		},
+		{
+			"uuid": "96b1d0cb-8b60-4e92-95b7-44615eb74eda",
+			"title": "Pause menu",
+			"description": "",
+			"category": "0b14967f-816f-4a14-b531-9218bacf41cb",
+			"steps": []
+		},
+		{
+			"uuid": "4860b126-ce63-4ca3-be46-5715355c3c45",
+			"title": "In game inventory and stat page",
+			"description": "",
+			"category": "0b14967f-816f-4a14-b531-9218bacf41cb",
+			"steps": []
+		},
+		{
+			"uuid": "6f2600f5-9d6d-4449-8bdd-a7e4bdfcb4a0",
+			"title": "Main menu",
+			"description": "",
+			"category": "0b14967f-816f-4a14-b531-9218bacf41cb",
+			"steps": []
+		},
+		{
+			"uuid": "2f6b42ed-0da1-4916-b226-fc3b39d5be25",
+			"title": "Settings",
+			"description": "",
+			"category": "0b14967f-816f-4a14-b531-9218bacf41cb",
+			"steps": []
+		},
+		{
+			"uuid": "98cf1815-4c7a-4239-a61b-c974372e4e37",
+			"title": "player death in dungeon",
+			"description": "- player respawns in town at the rescue guild\n- lose % of loot from run as payment",
+			"category": "0b14967f-816f-4a14-b531-9218bacf41cb",
+			"steps": []
+		}
+	],
+	"layout": {
+		"columns": [
+			[
+				"3e789873-1915-4ffa-a587-6968d95b6597"
+			],
+			[
+				"41fd3f60-bcaa-4a2a-89f1-987bb04b2ac2"
+			],
+			[
+				"320679d7-1fa6-4775-8e99-8172d77ed81a"
+			],
+			[
+				"d9c29c79-ef12-4606-b2f0-60ad2989a314"
+			]
+		]
+	}
+}
