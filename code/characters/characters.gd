@@ -12,6 +12,7 @@ const HITFLASHCOUNT := 2
 @export var jump_velocity:float = -300
 @export var starting_hp := 1.0
 
+var _data:CharacterData
 var _gravity:float = ProjectSettings.get_setting("physics/2d/default_gravity")
 var _grounded := false
 var _direction := Vector2.ZERO
@@ -40,6 +41,12 @@ func _physics_process(delta: float) -> void:
 	velocity = _move(delta)
 	if _is_jumping and is_on_ceiling_only(): _land()
 	move_and_slide()
+
+
+func setup_character(new_data:CharacterData) -> void:
+	assert(new_data != null, "Character received null data.")
+	_data = new_data.duplicate(true)
+	name = _data.id
 
 
 func apply_damage(value:float) -> void:

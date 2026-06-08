@@ -45,6 +45,11 @@ folder_colors={
 "res://textures/": "green"
 }
 
+[global_group]
+
+player_spawn=""
+enemy_spawn=""
+
 [input]
 
 move_left={
