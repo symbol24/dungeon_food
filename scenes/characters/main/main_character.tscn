@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://cnh7d6lx7mdrs" path="res://textures/Platformer Hero - with Weapon 79x79.png" id="2_0cnd8"]
 [ext_resource type="Script" uid="uid://cora4fbguurvy" path="res://code/utilities/hit_box.gd" id="3_4gd24"]
 [ext_resource type="Script" uid="uid://c31q8ehif82fq" path="res://code/utilities/hurt_box.gd" id="4_ohknt"]
+[ext_resource type="Script" uid="uid://c8xn4ao06kcj7" path="res://code/characters/main/interactible_area.gd" id="5_dybe6"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_0cnd8"]
 radius = 5.0
@@ -422,8 +423,13 @@ graph_offset = Vector2(-353, -180)
 radius = 6.0
 height = 22.0
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_td5vo"]
+radius = 8.0
+height = 24.0
+
 [node name="MainCharacter" type="CharacterBody2D" unique_id=2095451580 node_paths=PackedStringArray("for_flipping")]
 process_mode = 1
+z_index = 100
 collision_layer = 2
 script = ExtResource("1_gfyis")
 for_flipping = [NodePath("attack_1/attack1_collider"), NodePath("sprite")]
@@ -448,6 +454,7 @@ libraries/ = SubResource("AnimationLibrary_tvf8r")
 autoplay = &"idle"
 
 [node name="attack_1" type="Area2D" parent="." unique_id=179371710]
+visible = false
 collision_layer = 2
 collision_mask = 4
 script = ExtResource("3_4gd24")
@@ -479,6 +486,7 @@ parameters/ground/conditions/idle = true
 parameters/ground/conditions/move = false
 
 [node name="HurtBox" type="Area2D" parent="." unique_id=784541113]
+visible = false
 collision_layer = 2
 collision_mask = 4
 script = ExtResource("4_ohknt")
@@ -486,3 +494,14 @@ metadata/_custom_type_script = "uid://c31q8ehif82fq"
 
 [node name="hurt_collider" type="CollisionShape2D" parent="HurtBox" unique_id=2022298890]
 shape = SubResource("CapsuleShape2D_dybe6")
+debug_color = Color(0, 0.62439054, 0.5223361, 0.41960785)
+
+[node name="InteractibleArea" type="Area2D" parent="." unique_id=1347701891]
+collision_layer = 2
+collision_mask = 8
+script = ExtResource("5_dybe6")
+metadata/_custom_type_script = "uid://c8xn4ao06kcj7"
+
+[node name="interactible_collider" type="CollisionShape2D" parent="InteractibleArea" unique_id=328061662]
+shape = SubResource("CapsuleShape2D_td5vo")
+debug_color = Color(0.63603044, 0.6302667, 0, 0.41960785)

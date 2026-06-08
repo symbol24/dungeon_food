@@ -38,6 +38,10 @@ func attack_end() -> void:
 	animation_tree.set("parameters/ground/conditions/ground_out", false)
 
 
+func add_item_to_inv(item:ItemData) -> void:
+	_data.add_item(item)
+
+
 func _move(delta) -> Vector2:
 	var new_vel:Vector2 = velocity
 	if _direction.x == 0.0:

@@ -20,6 +20,7 @@ var _last_known := Vector2.ZERO
 func _ready() -> void:
 	super()
 	_update_anim_state(Animstate.IDLE)
+	z_index = 90
 
 
 func _physics_process(delta: float) -> void:
