@@ -1,6 +1,7 @@
 class_name MainCharacterData extends CharacterData
 
 
+@export var town_uid := ""
 @export var starting_jump_velocity := -300.0
 @export var inventory:Array[Array] = []
 

@@ -4,6 +4,7 @@
 
 [resource]
 script = ExtResource("1_iidu2")
+town_uid = "uid://dainvu111e4ug"
 id = &"main_character"
 uid = "uid://c4n8iykk554fr"
 metadata/_custom_type_script = "uid://m0gic1bkrt0s"
