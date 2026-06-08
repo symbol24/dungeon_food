@@ -27,10 +27,12 @@ func _spawn_main_character(pos:Vector2) -> void:
 
 		_gm.current_chunk.add_child.call_deferred(_dungeon_player)
 		if not _dungeon_player.is_node_ready(): await _dungeon_player.ready
+		
+		_dungeon_player.global_position = pos
 	
 	else:
 		if _town_player == null:
-			_town_player = load(_gm.player_data.uid).instantiate()
+			_town_player = load(_gm.player_data.town_uid).instantiate()
 			_town_player.setup_character(_gm.player_data)
 
 		if _dungeon_player != null and _dungeon_player.get_parent():
@@ -38,8 +40,8 @@ func _spawn_main_character(pos:Vector2) -> void:
 		
 		_gm.current_chunk.add_child.call_deferred(_town_player)
 		if not _town_player.is_node_ready(): await _town_player.ready
-
-	_dungeon_player.global_position = pos
+		
+		_town_player.global_position = pos
 
 
 func _spawn_enemies(dict:Dictionary) -> void:

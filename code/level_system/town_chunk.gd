@@ -1,9 +1,9 @@
-class_name LevelChunk extends Chunk
+class_name TownChunk extends Chunk
 
 
 func _ready() -> void:
 	process_mode = Node.PROCESS_MODE_PAUSABLE
-	add_to_group(&"level_chunk")
+	add_to_group(&"town_chunk")
 	await _await_children()
 	Signals.chunk_ready.emit(self)
 

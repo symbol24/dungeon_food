@@ -13,7 +13,7 @@ var spawn_manager:SpawnManager
 
 var in_dungeon := false
 var player_data:MainCharacterData = null
-var current_chunk:Node2D = null
+var current_chunk:Chunk = null
 var target_spawn_id := &"first"
 
 
@@ -21,7 +21,7 @@ func _ready() -> void:
 	name = &"GameManager"
 	add_to_group(&"game_manager")
 	process_mode = Node.PROCESS_MODE_ALWAYS
-	Signals.level_chunk_ready.connect(_level_chunk_ready)
+	Signals.chunk_ready.connect(_chunk_ready)
 
 
 func setup_managers() -> void:
@@ -43,18 +43,21 @@ func setup_managers() -> void:
 	Signals.all_managers_ready.emit()
 
 
-func _level_chunk_ready(chunk:LevelChunk) -> void:
+func _chunk_ready(chunk:Chunk) -> void:
 	assert(is_instance_valid(chunk), "Game Manager received null level chunk.")
-	in_dungeon = true
+	in_dungeon = true if chunk is LevelChunk else false
 	current_chunk = chunk
 	var children := chunk.get_children()
 	var player_points:Array[Marker2D] = []
 	var enemies:Array[Marker2D] = []
+	var npc_points:Array[Marker2D] = []
 	for each in children:
 		if each.is_in_group(&"player_spawn"):
 			player_points.append(each)
 		elif each.is_in_group(&"enemy_spawn"):
 			enemies.append(each)
+		elif each.is_in_group(&"npc_spawn"):
+			npc_points.append(each)
 
 	assert(not player_points.is_empty(), "No player spawn points found in chunk " + chunk.name)
 	
@@ -65,9 +68,14 @@ func _level_chunk_ready(chunk:LevelChunk) -> void:
 	Signals.spawn_player.emit(_get_spawn_point(target_spawn_id, player_points).global_position)
 	
 	var dict := {}
-	for each in enemies:
-		dict[each.global_position] = each.get_meta(&"enemy")
-	Signals.spawn_enemies.emit(dict)
+	if in_dungeon:
+		for each in enemies:
+			dict[each.global_position] = each.get_meta(&"enemy")
+		Signals.spawn_enemies.emit(dict)
+	else:
+		for each in npc_points:
+			dict[each.global_position] = each.get_meta(&"npc")
+		Signals.spawn_npcs.emit(dict)
 
 
 func _get_spawn_point(id:StringName, markers:Array[Marker2D]) -> Marker2D:

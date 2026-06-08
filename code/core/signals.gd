@@ -8,10 +8,9 @@ signal all_managers_ready
 signal spawn_loot(loot:Array, spawn_pos:Vector2)
 
 # LEVEL SYSTEM
-signal level_chunk_ready(chunk:LevelChunk)
+signal chunk_ready(chunk:Chunk)
 
-# PLAYER SPAWNING
+# SPAWNING
 signal spawn_player(pos:Vector2)
-
-# ENEMY SPAWNING
 signal spawn_enemies(to_spawn:Dictionary)
+signal spawn_npcs(to_sapwn:Dictionary)
