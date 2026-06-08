@@ -18,6 +18,7 @@ func _ready() -> void:
 func _spawn_main_character(pos:Vector2) -> void:
 	if _main_character == null:
 		_main_character = load(_gm.player_data.uid).instantiate()
+		_main_character.setup_character(_gm.player_data)
 
 	_gm.current_chunk.add_child.call_deferred(_main_character)
 	if not _main_character.is_node_ready(): await _main_character.ready
