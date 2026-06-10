@@ -51,9 +51,6 @@
 			"title": "Todo",
 			"tasks": [
 				"2e2956d1-2396-4793-b1df-1bf073812214",
-				"a73bbfd5-c1ed-476c-bfcd-28a1dbed547b",
-				"a8ec984c-91d2-4724-9656-1ca8c9d4d4f8",
-				"19fba871-9db4-4914-999e-a535127af8cd",
 				"af0ae55c-17f4-487c-8326-be72a941dabc",
 				"4860b126-ce63-4ca3-be46-5715355c3c45",
 				"98cf1815-4c7a-4239-a61b-c974372e4e37"
@@ -63,13 +60,18 @@
 			"uuid": "320679d7-1fa6-4775-8e99-8172d77ed81a",
 			"title": "Ongoing",
 			"tasks": [
-				"c34c7e8a-6353-41e2-82cf-521edad02759"
+				"19fba871-9db4-4914-999e-a535127af8cd",
+				"fff468f0-1e08-4d27-b5ba-26157b55bf37"
 			]
 		},
 		{
 			"uuid": "d9c29c79-ef12-4606-b2f0-60ad2989a314",
 			"title": "Done",
-			"tasks": []
+			"tasks": [
+				"c34c7e8a-6353-41e2-82cf-521edad02759",
+				"a8ec984c-91d2-4724-9656-1ca8c9d4d4f8",
+				"a73bbfd5-c1ed-476c-bfcd-28a1dbed547b"
+			]
 		}
 	],
 	"tasks": [
@@ -104,7 +106,7 @@
 		{
 			"uuid": "19fba871-9db4-4914-999e-a535127af8cd",
 			"title": "town level  and system",
-			"description": "",
+			"description": "- add removal of exited chunks",
 			"category": "0b14967f-816f-4a14-b531-9218bacf41cb",
 			"steps": []
 		},
@@ -147,6 +149,13 @@
 			"uuid": "98cf1815-4c7a-4239-a61b-c974372e4e37",
 			"title": "player death in dungeon",
 			"description": "- player respawns in town at the rescue guild\n- lose % of loot from run as payment",
+			"category": "0b14967f-816f-4a14-b531-9218bacf41cb",
+			"steps": []
+		},
+		{
+			"uuid": "fff468f0-1e08-4d27-b5ba-26157b55bf37",
+			"title": "chunk switch detection",
+			"description": "make the character enter an area and then do the chunk load and switch",
 			"category": "0b14967f-816f-4a14-b531-9218bacf41cb",
 			"steps": []
 		}

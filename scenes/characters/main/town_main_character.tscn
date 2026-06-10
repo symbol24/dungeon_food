@@ -376,3 +376,5 @@ metadata/_custom_type_script = "uid://c8xn4ao06kcj7"
 [node name="interactible_collider" type="CollisionShape2D" parent="InteractibleArea" unique_id=436820343]
 shape = SubResource("CapsuleShape2D_b7adn")
 debug_color = Color(0.63603044, 0.6302667, 0, 0.41960785)
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=343478160]

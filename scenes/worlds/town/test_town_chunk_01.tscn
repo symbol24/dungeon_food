@@ -1,0 +1,46 @@
+[gd_scene format=4 uid="uid://cf01hh8v1yogh"]
+
+[ext_resource type="Script" uid="uid://dhkl2cebupglc" path="res://code/level_system/town_chunk.gd" id="1_swa4b"]
+[ext_resource type="TileSet" uid="uid://buitebbur2thf" path="res://data/tiles/debug_world.tres" id="2_ot83d"]
+[ext_resource type="Script" uid="uid://0m7isv880xrt" path="res://code/level_system/chunk_switch_area.gd" id="4_ql8qn"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_swa4b"]
+size = Vector2(20, 44)
+
+[node name="TestTownChunk01" type="Node2D" unique_id=437668215 node_paths=PackedStringArray("connections") groups=["town_chunk"]]
+script = ExtResource("1_swa4b")
+connections = [NodePath("right_connection_point")]
+metadata/_custom_type_script = "uid://dhkl2cebupglc"
+
+[node name="ground" type="TileMapLayer" parent="." unique_id=1503998971]
+tile_map_data = PackedByteArray("AAAaABYAAAALAAMAAAAaABUAAAALAAAAAAAZABYAAAAJAAMAAAAZABUAAAAKAAAAAAAYABYAAAAJAAMAAAAYABUAAAAKAAAAAAAXABYAAAAJAAMAAAAXABUAAAAKAAAAAAAWABYAAAAJAAMAAAAWABUAAAAKAAAAAAAVABYAAAAJAAMAAAAVABUAAAAKAAAAAAAUABYAAAAJAAMAAAAUABUAAAAKAAAAAAATABYAAAAJAAMAAAATABUAAAAKAAAAAAASABYAAAAJAAMAAAASABUAAAAKAAAAAAARABYAAAAJAAMAAAARABUAAAAKAAAAAAAQABYAAAAJAAMAAAAQABUAAAAKAAAAAAAPABYAAAAJAAMAAAAPABUAAAAKAAAAAAAOABYAAAAJAAMAAAAOABUAAAAKAAAAAAANABYAAAAJAAMAAAANABUAAAAKAAAAAAAMABYAAAAJAAMAAAAMABUAAAAKAAAAAAALABYAAAAJAAMAAAALABUAAAAKAAAAAAAKABYAAAAJAAMAAAAKABUAAAAKAAAAAAAJABYAAAAJAAMAAAAJABUAAAAKAAAAAAAIABYAAAAJAAMAAAAIABUAAAAKAAAAAAAHABYAAAAJAAMAAAAHABUAAAAKAAAAAAAGABYAAAAJAAMAAAAGABUAAAAKAAAAAAAFABYAAAAJAAMAAAAFABUAAAAKAAAAAAAEABYAAAAJAAMAAAAEABUAAAAKAAAAAAADABYAAAAJAAMAAAADABUAAAAKAAAAAAACABYAAAAJAAMAAAACABUAAAAKAAAAAAABABYAAAAJAAMAAAABABUAAAAKAAAAAAAAABYAAAAIAAMAAAAAABUAAAAIAAAAAAASABIAAAALAAMAAAASABEAAAALAAAAAAARABIAAAAJAAMAAAARABEAAAAKAAAAAAAQABIAAAAJAAMAAAAQABEAAAAIAAAAAAAOABIAAAAJAAMAAAAPABIAAAAJAAMAAAAPAA0AAAALAAMAAAAOAA0AAAAJAAMAAAANAA0AAAAJAAMAAAAMAA0AAAAIAAMAAAAQAAoAAAALAAMAAAAPAAoAAAAJAAMAAAAOAAoAAAAIAAMAAAAJAAwAAAALAAMAAAAIAAwAAAAJAAMAAAAHAAwAAAAIAAMAAAAVAA8AAAAJAAMAAAAUAA8AAAAIAAMAAAAKABAAAAALAAMAAAAJABAAAAAJAAMAAAAIABAAAAAIAAMAAAAWAA8AAAALAAMAAAA=")
+tile_set = ExtResource("2_ot83d")
+
+[node name="player_spawner_01" type="Marker2D" parent="." unique_id=893531071 groups=["player_spawn"]]
+position = Vector2(135, 162)
+metadata/id = &"first_spawn"
+
+[node name="player_spawner_02_left" type="Marker2D" parent="." unique_id=1343684252 groups=["player_spawn"]]
+position = Vector2(41, 307)
+metadata/id = &"test_town_chunk_01_left"
+
+[node name="player_spawner_03_right" type="Marker2D" parent="." unique_id=1627254432 groups=["player_spawn"]]
+position = Vector2(374, 308)
+metadata/id = &"test_town_chunk_01_right"
+
+[node name="right_switch_area" type="Area2D" parent="." unique_id=2065749871]
+position = Vector2(422, 314)
+script = ExtResource("4_ql8qn")
+target_chunk = &"test_town_chunk_02"
+target_spawn_point = &"test_town_chunk_02_left"
+metadata/_custom_type_script = "uid://0m7isv880xrt"
+
+[node name="switch_collider" type="CollisionShape2D" parent="right_switch_area" unique_id=1449613411]
+shape = SubResource("RectangleShape2D_swa4b")
+
+[node name="right_connection_point" type="Marker2D" parent="." unique_id=985721988 groups=["chunk_connection_point"]]
+position = Vector2(432, 112)
+metadata/target = &"test_town_chunk_02"
+
+[node name="bottom_right" type="Marker2D" parent="." unique_id=467115501]
+position = Vector2(432, 368)

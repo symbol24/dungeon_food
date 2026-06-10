@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="ChunkListData" format=3 uid="uid://do8ncfwhnema4"]
+
+[ext_resource type="Script" uid="uid://dd43e2uk8m3xk" path="res://code/level_system/chunk_list_data.gd" id="1_4gmk6"]
+
+[resource]
+script = ExtResource("1_4gmk6")
+list = Dictionary[StringName, String]({
+&"test_dungeon_chunk_01": "uid://dfpwpgactpk5i",
+&"test_town_chunk_01": "uid://cf01hh8v1yogh",
+&"test_town_chunk_02": "uid://dinun0mgp2kxt"
+})
+metadata/_custom_type_script = "uid://dd43e2uk8m3xk"

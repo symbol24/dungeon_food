@@ -53,6 +53,10 @@ folder_colors={
 
 player_spawn=""
 enemy_spawn=""
+chunk_connection_point=""
+bottom_right=""
+town=""
+dungeon=""
 
 [input]
 

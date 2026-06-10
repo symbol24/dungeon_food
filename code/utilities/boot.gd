@@ -1,7 +1,8 @@
 class_name Boot extends Node2D
 
 
-const TARGET := "uid://dfpwpgactpk5i"
+const TARGET := &"test_town_chunk_01"
+const SPAWN := &"first_spawn"
 
 
 var game:GameManager
@@ -16,5 +17,5 @@ func _ready() -> void:
 
 
 func _continue() -> void:
-	get_tree().change_scene_to_file(TARGET)
+	Signals.load_chunk.emit(TARGET, SPAWN)
 	

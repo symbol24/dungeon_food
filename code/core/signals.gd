@@ -9,8 +9,9 @@ signal spawn_loot(loot:Array, spawn_pos:Vector2)
 
 # LEVEL SYSTEM
 signal chunk_ready(chunk:Chunk)
+signal chunk_spawning_complete
+signal in_new_chunk
+signal load_chunk(target:StringName, spawn:StringName)
 
 # SPAWNING
-signal spawn_player(pos:Vector2)
-signal spawn_enemies(to_spawn:Dictionary)
-signal spawn_npcs(to_sapwn:Dictionary)
+signal spawn_player()

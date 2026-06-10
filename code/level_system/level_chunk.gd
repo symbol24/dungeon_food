@@ -1,14 +1,11 @@
 class_name LevelChunk extends Chunk
+# TODO: Rename level chunk to dungeon chunk
 
 
-func _ready() -> void:
-	process_mode = Node.PROCESS_MODE_PAUSABLE
-	add_to_group(&"level_chunk")
-	await _await_children()
-	Signals.chunk_ready.emit(self)
-
-
-func _await_children() -> void:
-	var children := get_children()
-	for each in children:
-		if not each.is_node_ready(): await each.ready
+func get_enemies_to_spawn() -> Dictionary:
+	var to_return := {}
+	var points := _get_spawn_points(&"enemy_spawn")
+	for each in points:
+		to_return[each.global_position] = each.get_meta(&"enemy")
+	
+	return to_return
