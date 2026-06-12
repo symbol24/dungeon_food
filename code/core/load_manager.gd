@@ -54,9 +54,7 @@ func _load_complete() -> void:
 	get_tree().root.add_child.call_deferred(new_chunk)
 	if not new_chunk.is_node_ready: await new_chunk.ready
 	_loaded_chunks[_target_chunk] = new_chunk
-	if _previous_chunk:
-		var connection:Marker2D = _previous_chunk.get_connection_point(_target_chunk)
-		new_chunk.global_position = connection.global_position
+	new_chunk.global_position = Vector2.ZERO
 	next_chunk = new_chunk
 	Signals.chunk_ready.emit(new_chunk)
 
@@ -77,5 +75,6 @@ func _move_to_target_chunk(chunk_id:StringName) -> void:
 	next_chunk = null
 	Signals.spawn_player.emit()
 	
-	# After moving character to new chunk, we need to remove_child old chunk
-	# we also need to unspawn all enemies and interactibles
+	if _previous_chunk:
+		_previous_chunk.clear_chunk()
+		get_tree().root.remove_child.call_deferred(_previous_chunk)

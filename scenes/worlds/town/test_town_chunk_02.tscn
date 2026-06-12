@@ -7,9 +7,8 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vk8rg"]
 size = Vector2(20, 44)
 
-[node name="TestTownChunk02" type="Node2D" unique_id=1478713327 node_paths=PackedStringArray("connections") groups=["town_chunk"]]
+[node name="TestTownChunk02" type="Node2D" unique_id=1478713327 groups=["town_chunk"]]
 script = ExtResource("1_vk8rg")
-connections = [NodePath("left_connection_point")]
 metadata/_custom_type_script = "uid://dhkl2cebupglc"
 
 [node name="ground" type="TileMapLayer" parent="." unique_id=1987660026]
@@ -17,15 +16,17 @@ tile_map_data = PackedByteArray("AAAaAA8AAAALAAMAAAAaAA4AAAALAAAAAAAZAA8AAAAJAAM
 tile_set = ExtResource("2_44ae6")
 
 [node name="player_spawner_02_left" type="Marker2D" parent="." unique_id=499979616 groups=["player_spawn"]]
-position = Vector2(44, 200)
+position = Vector2(43, 224)
 metadata/id = &"test_town_chunk_02_left"
 
 [node name="player_spawner_03_right" type="Marker2D" parent="." unique_id=839233469 groups=["player_spawn"]]
-position = Vector2(377, 199)
+position = Vector2(383, 224)
 metadata/id = &"test_town_chunk_02_right"
 
-[node name="left_switch_area" type="Area2D" parent="." unique_id=1110100488]
+[node name="left_switch_area" type="Area2D" parent="." unique_id=1110100488 groups=["switch_area"]]
 position = Vector2(10, 202)
+collision_layer = 8
+collision_mask = 2
 script = ExtResource("3_fwo82")
 target_chunk = &"test_town_chunk_01"
 target_spawn_point = &"test_town_chunk_01_right"
@@ -33,10 +34,3 @@ metadata/_custom_type_script = "uid://0m7isv880xrt"
 
 [node name="switch_collider" type="CollisionShape2D" parent="left_switch_area" unique_id=1444006904]
 shape = SubResource("RectangleShape2D_vk8rg")
-
-[node name="left_connection_point" type="Marker2D" parent="." unique_id=1731241336 groups=["chunk_connection_point"]]
-position = Vector2(-432, -112)
-metadata/target = &"test_town_chunk_01"
-
-[node name="bottom_right" type="Marker2D" parent="." unique_id=1165856698]
-position = Vector2(432, 256)

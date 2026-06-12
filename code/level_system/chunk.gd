@@ -17,6 +17,10 @@ func get_spawn_point(type := &"player_spawn", target := &"") -> Marker2D:
 	return null
 
 
+func clear_chunk() -> void:
+	pass
+
+
 func _get_spawn_points(type:StringName = "player_spawn") -> Array[Marker2D]:
 	var to_return:Array[Marker2D] = []
 	var children := get_children()

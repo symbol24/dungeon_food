@@ -434,18 +434,17 @@ collision_layer = 2
 script = ExtResource("1_gfyis")
 for_flipping = [NodePath("attack_1/attack1_collider"), NodePath("sprite")]
 starting_hp = 10.0
-metadata/_edit_vertical_guides_ = [-5.0, 5.0]
 
 [node name="sprite" type="Sprite2D" parent="." unique_id=1380352732]
 unique_name_in_owner = true
-position = Vector2(7, 0)
+position = Vector2(7, -11.5)
 texture = ExtResource("2_0cnd8")
 hframes = 14
 vframes = 27
 
 [node name="move_collider" type="CollisionShape2D" parent="." unique_id=712700037]
 visible = false
-position = Vector2(0, 0.5)
+position = Vector2(0, -11)
 shape = SubResource("CapsuleShape2D_0cnd8")
 
 [node name="animator" type="AnimationPlayer" parent="." unique_id=973544278]
@@ -455,6 +454,7 @@ autoplay = &"idle"
 
 [node name="attack_1" type="Area2D" parent="." unique_id=179371710]
 visible = false
+position = Vector2(0, -11.5)
 collision_layer = 2
 collision_mask = 4
 script = ExtResource("3_4gd24")
@@ -487,6 +487,7 @@ parameters/ground/conditions/move = false
 
 [node name="HurtBox" type="Area2D" parent="." unique_id=784541113]
 visible = false
+position = Vector2(0, -11.5)
 collision_layer = 2
 collision_mask = 4
 script = ExtResource("4_ohknt")
@@ -497,6 +498,8 @@ shape = SubResource("CapsuleShape2D_dybe6")
 debug_color = Color(0, 0.62439054, 0.5223361, 0.41960785)
 
 [node name="InteractibleArea" type="Area2D" parent="." unique_id=1347701891]
+visible = false
+position = Vector2(0, -11.5)
 collision_layer = 2
 collision_mask = 8
 script = ExtResource("5_dybe6")
@@ -507,3 +510,4 @@ shape = SubResource("CapsuleShape2D_td5vo")
 debug_color = Color(0.63603044, 0.6302667, 0, 0.41960785)
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=310093616]
+position = Vector2(0, -11.5)

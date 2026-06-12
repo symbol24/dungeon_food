@@ -2,8 +2,6 @@
 
 [ext_resource type="Script" uid="uid://bjk2gsmwesx06" path="res://code/characters/main/main_character.gd" id="1_jkqqe"]
 [ext_resource type="Texture2D" uid="uid://olsl8s56u1j8" path="res://textures/Platformer Hero No Weapon 64x64.png" id="2_trkp4"]
-[ext_resource type="Script" uid="uid://cora4fbguurvy" path="res://code/utilities/hit_box.gd" id="3_dh5tq"]
-[ext_resource type="Script" uid="uid://c31q8ehif82fq" path="res://code/utilities/hurt_box.gd" id="4_hkidk"]
 [ext_resource type="Script" uid="uid://c8xn4ao06kcj7" path="res://code/characters/main/interactible_area.gd" id="5_f0pi8"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_uqht0"]
@@ -154,9 +152,6 @@ _data = {
 &"move": SubResource("Animation_4h6og")
 }
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_qxu2m"]
-height = 42.0
-
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_w5l7o"]
 animation = &"fall"
 
@@ -295,10 +290,6 @@ states/ground/position = Vector2(384, 100)
 transitions = ["air", "attacks", SubResource("AnimationNodeStateMachineTransition_n4655"), "attacks", "air", SubResource("AnimationNodeStateMachineTransition_co2ic"), "Start", "ground", SubResource("AnimationNodeStateMachineTransition_dybe6"), "ground", "air", SubResource("AnimationNodeStateMachineTransition_td5vo"), "ground", "attacks", SubResource("AnimationNodeStateMachineTransition_w5l7o"), "attacks", "ground", SubResource("AnimationNodeStateMachineTransition_tvf8r"), "air", "ground", SubResource("AnimationNodeStateMachineTransition_pf1sn")]
 graph_offset = Vector2(-353, -180)
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_e2rks"]
-radius = 6.0
-height = 22.0
-
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_b7adn"]
 radius = 8.0
 height = 24.0
@@ -309,33 +300,19 @@ metadata/_custom_type_script = "uid://bjk2gsmwesx06"
 
 [node name="sprite" type="Sprite2D" parent="." unique_id=1310983369]
 unique_name_in_owner = true
-position = Vector2(1, -5)
+position = Vector2(0, -16)
 texture = ExtResource("2_trkp4")
 hframes = 14
 vframes = 20
 
 [node name="move_collider" type="CollisionShape2D" parent="." unique_id=1991859438]
-visible = false
+position = Vector2(0, -11)
 shape = SubResource("CapsuleShape2D_uqht0")
 
 [node name="animator" type="AnimationPlayer" parent="." unique_id=328679007]
 unique_name_in_owner = true
 libraries/ = SubResource("AnimationLibrary_qckse")
 autoplay = &"idle"
-
-[node name="attack_1" type="Area2D" parent="." unique_id=1084799524]
-visible = false
-collision_layer = 2
-collision_mask = 4
-script = ExtResource("3_dh5tq")
-metadata/_custom_type_script = "uid://cora4fbguurvy"
-
-[node name="attack1_collider" type="CollisionShape2D" parent="attack_1" unique_id=503486517]
-position = Vector2(26, 3)
-rotation = 1.5707964
-shape = SubResource("CapsuleShape2D_qxu2m")
-disabled = true
-debug_color = Color(0.96409565, 0.13580933, 0.34685144, 0.41960785)
 
 [node name="animation_tree" type="AnimationTree" parent="." unique_id=641728832]
 unique_name_in_owner = true
@@ -355,19 +332,8 @@ parameters/ground/conditions/ground_out = false
 parameters/ground/conditions/idle = true
 parameters/ground/conditions/move = false
 
-[node name="HurtBox" type="Area2D" parent="." unique_id=978293779]
-visible = false
-collision_layer = 2
-collision_mask = 4
-script = ExtResource("4_hkidk")
-metadata/_custom_type_script = "uid://c31q8ehif82fq"
-
-[node name="hurt_collider" type="CollisionShape2D" parent="HurtBox" unique_id=263337373]
-shape = SubResource("CapsuleShape2D_e2rks")
-debug_color = Color(0, 0.62439054, 0.5223361, 0.41960785)
-
 [node name="InteractibleArea" type="Area2D" parent="." unique_id=273957518]
-visible = false
+position = Vector2(0, -11)
 collision_layer = 2
 collision_mask = 8
 script = ExtResource("5_f0pi8")
@@ -378,3 +344,4 @@ shape = SubResource("CapsuleShape2D_b7adn")
 debug_color = Color(0.63603044, 0.6302667, 0, 0.41960785)
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=343478160]
+position = Vector2(0, -11)

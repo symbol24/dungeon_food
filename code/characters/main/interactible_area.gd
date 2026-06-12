@@ -9,8 +9,14 @@ var _player:MainCharacter = null:
 
 func _ready() -> void:
 	body_entered.connect(_body_entered)
+	area_entered.connect(_area_entered)
 
 
 func _body_entered(body) -> void:
-	if body is LootItem:
+	if body.is_in_group(&"loot_item"):
 		_player.add_item_to_inv(body.pickup())
+
+
+func _area_entered(area) -> void:
+	if area.is_in_group(&"switch_area"):
+		Signals.load_chunk.emit(area.target_chunk, area.target_spawn_point)

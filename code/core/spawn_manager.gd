@@ -31,11 +31,12 @@ func _spawn_main_character() -> void:
 			_dungeon_player = load(_gm.player_data.uid).instantiate()
 			_dungeon_player.setup_character(_gm.player_data)
 
-		if _town_player != null and _town_player.get_parent():
-			_town_player.get_parent().remove_child.call_deferred(_town_player)
+		if _dungeon_player.get_parent() == null:
+			get_tree().root.add_child.call_deferred(_dungeon_player)
+			if not _dungeon_player.is_node_ready(): await _dungeon_player.ready
 
-		_gm.load_manager.current_chunk.add_child.call_deferred(_dungeon_player)
-		if not _dungeon_player.is_node_ready(): await _dungeon_player.ready
+		if _town_player != null and _town_player.get_parent():
+			get_tree().root.remove_child.call_deferred(_town_player)
 		
 		_dungeon_player.global_position = _gm.load_manager.current_chunk.get_spawn_point(&"player_spawn", _gm.load_manager.target_spawn).global_position
 	
@@ -44,12 +45,13 @@ func _spawn_main_character() -> void:
 			_town_player = load(_gm.player_data.town_uid).instantiate()
 			_town_player.setup_character(_gm.player_data)
 
+		if _town_player.get_parent() == null:
+			get_tree().root.add_child.call_deferred(_town_player)
+			if not _town_player.is_node_ready(): await _town_player.ready
+
 		if _dungeon_player != null and _dungeon_player.get_parent():
-			_dungeon_player.get_parent().remove_child.call_deferred(_dungeon_player)
-		
-		_gm.load_manager.current_chunk.add_child.call_deferred(_town_player)
-		if not _town_player.is_node_ready(): await _town_player.ready
-		
+			get_tree().root.remove_child.call_deferred(_dungeon_player)
+
 		_town_player.global_position = _gm.load_manager.current_chunk.get_spawn_point(&"player_spawn", _gm.load_manager.target_spawn).global_position
 
 

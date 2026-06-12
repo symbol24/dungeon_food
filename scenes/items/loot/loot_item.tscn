@@ -6,7 +6,7 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_s0ydi"]
 size = Vector2(8, 8)
 
-[node name="LootItem" type="RigidBody2D" unique_id=2136444944]
+[node name="LootItem" type="RigidBody2D" unique_id=2136444944 groups=["loot_item"]]
 z_index = 101
 collision_layer = 8
 script = ExtResource("1_rax7x")

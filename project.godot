@@ -57,6 +57,8 @@ chunk_connection_point=""
 bottom_right=""
 town=""
 dungeon=""
+loot_item=""
+switch_area=""
 
 [input]
 
