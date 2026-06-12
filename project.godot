@@ -59,6 +59,7 @@ town=""
 dungeon=""
 loot_item=""
 switch_area=""
+enemy=""
 
 [input]
 

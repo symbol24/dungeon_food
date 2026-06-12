@@ -237,7 +237,7 @@ height = 22.0
 radius = 4.0
 height = 26.0
 
-[node name="GhoulEnemy" type="CharacterBody2D" unique_id=1930172643 node_paths=PackedStringArray("for_flipping")]
+[node name="GhoulEnemy" type="CharacterBody2D" unique_id=1930172643 node_paths=PackedStringArray("for_flipping") groups=["enemy"]]
 collision_layer = 4
 script = ExtResource("1_n35ch")
 loot_table = ExtResource("2_vehkv")

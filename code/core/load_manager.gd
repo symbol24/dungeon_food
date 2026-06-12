@@ -61,8 +61,9 @@ func _load_complete() -> void:
 
 func _reparent_chunk() -> void:
 	_previous_chunk = current_chunk
-	get_tree().root.add_child.call_deferred(_loaded_chunks[_target_chunk])
-	Signals.chunk_ready.emit(_loaded_chunks[_target_chunk])
+	next_chunk = _loaded_chunks[_target_chunk]
+	get_tree().root.add_child.call_deferred(next_chunk)
+	Signals.chunk_ready.emit(next_chunk)
 
 
 func _chunk_spawning_complete() -> void:
