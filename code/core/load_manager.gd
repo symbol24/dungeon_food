@@ -6,6 +6,8 @@ const CHUNKS := preload("uid://do8ncfwhnema4")
 
 var target_spawn_id := &"first"
 var current_chunk:Chunk = null
+var next_chunk:Chunk = null
+var target_spawn := &""
 var _previous_chunk:Chunk = null
 var _current_chunk_id := &"first"
 var _loaded_chunks:Dictionary[StringName, Chunk] = {}
@@ -13,7 +15,6 @@ var _progress := []
 var _loading := false
 var _target_chunk_uid := ""
 var _target_chunk := &""
-var target_spawn := &""
 
 
 func _ready() -> void:
@@ -56,6 +57,7 @@ func _load_complete() -> void:
 	if _previous_chunk:
 		var connection:Marker2D = _previous_chunk.get_connection_point(_target_chunk)
 		new_chunk.global_position = connection.global_position
+	next_chunk = new_chunk
 	Signals.chunk_ready.emit(new_chunk)
 
 
@@ -72,6 +74,7 @@ func _chunk_spawning_complete() -> void:
 func _move_to_target_chunk(chunk_id:StringName) -> void:
 	current_chunk = _loaded_chunks[_target_chunk]
 	_current_chunk_id = chunk_id
+	next_chunk = null
 	Signals.spawn_player.emit()
 	
 	# After moving character to new chunk, we need to remove_child old chunk

@@ -57,7 +57,7 @@ func _spawn_enemies(dict:Dictionary) -> void:
 	for k in dict.keys():
 		var data:EnemyData = dict[k].duplicate()
 		var new:Enemy = load(data.uid).instantiate()
-		_gm.current_chunk.add_child.call_deferred(new)
+		_gm.load_manager.next_chunk.add_child.call_deferred(new)
 		if not new.is_node_ready(): await new.ready
 		new.setup_character(data)
 		new.global_position = k
