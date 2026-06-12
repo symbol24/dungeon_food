@@ -50,16 +50,20 @@
 			"uuid": "41fd3f60-bcaa-4a2a-89f1-987bb04b2ac2",
 			"title": "Todo",
 			"tasks": [
-				"2e2956d1-2396-4793-b1df-1bf073812214",
 				"af0ae55c-17f4-487c-8326-be72a941dabc",
 				"4860b126-ce63-4ca3-be46-5715355c3c45",
-				"98cf1815-4c7a-4239-a61b-c974372e4e37"
+				"98cf1815-4c7a-4239-a61b-c974372e4e37",
+				"b52b9770-18a1-488b-9b8b-a8bc048ffed2",
+				"5270d992-149a-4f66-b965-12512bd6a3a7",
+				"8e114367-8748-4d5b-b5a7-39378ad77408"
 			]
 		},
 		{
 			"uuid": "320679d7-1fa6-4775-8e99-8172d77ed81a",
 			"title": "Ongoing",
-			"tasks": []
+			"tasks": [
+				"2e2956d1-2396-4793-b1df-1bf073812214"
+			]
 		},
 		{
 			"uuid": "d9c29c79-ef12-4606-b2f0-60ad2989a314",
@@ -155,6 +159,27 @@
 			"uuid": "fff468f0-1e08-4d27-b5ba-26157b55bf37",
 			"title": "chunk switch detection",
 			"description": "make the character enter an area and then do the chunk load and switch",
+			"category": "0b14967f-816f-4a14-b531-9218bacf41cb",
+			"steps": []
+		},
+		{
+			"uuid": "b52b9770-18a1-488b-9b8b-a8bc048ffed2",
+			"title": "Basic enemy AI",
+			"description": "",
+			"category": "0b14967f-816f-4a14-b531-9218bacf41cb",
+			"steps": []
+		},
+		{
+			"uuid": "5270d992-149a-4f66-b965-12512bd6a3a7",
+			"title": "first NPC",
+			"description": "",
+			"category": "0b14967f-816f-4a14-b531-9218bacf41cb",
+			"steps": []
+		},
+		{
+			"uuid": "8e114367-8748-4d5b-b5a7-39378ad77408",
+			"title": "Dialogue System",
+			"description": "",
 			"category": "0b14967f-816f-4a14-b531-9218bacf41cb",
 			"steps": []
 		}
