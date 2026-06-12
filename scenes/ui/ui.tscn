@@ -4,3 +4,7 @@
 
 [node name="Ui" type="CanvasLayer" unique_id=1993802320]
 script = ExtResource("1_u7n8c")
+uis = Dictionary[StringName, String]({
+&"dungeon_ui": "uid://coicg26cm2fgu",
+&"town_ui": "uid://25axgsn1208f"
+})

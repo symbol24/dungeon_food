@@ -14,4 +14,7 @@ signal in_new_chunk
 signal load_chunk(target:StringName, spawn:StringName)
 
 # SPAWNING
-signal spawn_player()
+signal spawn_player
+
+# UI
+signal toggle_display(id:StringName, display:bool)

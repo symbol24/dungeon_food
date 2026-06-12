@@ -75,7 +75,8 @@ func _move_to_target_chunk(chunk_id:StringName) -> void:
 	_current_chunk_id = chunk_id
 	next_chunk = null
 	Signals.spawn_player.emit()
-	
+	var in_dungeon := true if current_chunk.is_in_group(&"dungeon") else false
+	Signals.toggle_display.emit(&"dungeon_ui" if in_dungeon else &"town_ui", true)
 	if _previous_chunk:
 		_previous_chunk.clear_chunk()
 		get_tree().root.remove_child.call_deferred(_previous_chunk)

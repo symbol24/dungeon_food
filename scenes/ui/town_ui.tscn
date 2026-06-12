@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://25axgsn1208f"]
+
+[ext_resource type="Script" uid="uid://clt2syl4joova" path="res://code/ui/town_ui.gd" id="1_x8v33"]
+
+[node name="TownUi" type="Control" unique_id=307077978]
+custom_minimum_size = Vector2(426, 240)
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_x8v33")
+_id = &"town_ui"
+metadata/_custom_type_script = "uid://clt2syl4joova"
+
+[node name="Label" type="Label" parent="." unique_id=907369136]
+layout_mode = 0
+offset_left = 18.0
+offset_top = 19.0
+offset_right = 77.0
+offset_bottom = 42.0
+text = "town ui"

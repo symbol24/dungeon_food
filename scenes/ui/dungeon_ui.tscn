@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://coicg26cm2fgu"]
+
+[ext_resource type="Script" uid="uid://ci23p5uyo0ugf" path="res://code/ui/dungeon_ui.gd" id="1_ibsjc"]
+
+[node name="DungeonUi" type="Control" unique_id=1868577032]
+custom_minimum_size = Vector2(426, 240)
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_ibsjc")
+_id = &"dungeon_ui"
+metadata/_custom_type_script = "uid://ci23p5uyo0ugf"
+
+[node name="Label" type="Label" parent="." unique_id=936113790]
+layout_mode = 0
+offset_left = 12.0
+offset_top = 9.0
+offset_right = 81.0
+offset_bottom = 32.0
+text = "dungeon"
